@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<psatsim_isa>
+	<process tech_point="350" capacitance_scale="5.2197" resistance_scale="5.2571" feature_scale="0.4375" voltage_scale="0.5" voltage_threshold_scale="0.6147" sense_voltage_scale="0.95"/>
+	<instructions>
+		<instruction name="add" operands="RD,RS,RT" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="addi" operands="RD,RS,IM" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="addu" operands="RD,RS,RT" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="addiu" operands="RD,RS,IM" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="sub" operands="RD,RS,RT" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="subu" operands="RD,RS,RT" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="mult" operands="WR_HI_LO,RS,RT" energy="8.29696975698066" clock="0.229131432242199"/>
+		<instruction name="div" operands="WR_HI_LO,RS,RT" energy="8.29696975698066" clock="0.229131432242199"/>
+		<instruction name="divu" operands="WR_HI_LO,RS,RT" energy="8.29696975698066" clock="0.229131432242199"/>
+		<instruction name="mfhi" operands="RD,RD_HI_LO" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="mflo" operands="RD,RD_HI_LO" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="lui" operands="RD,IM" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="mfc1" operands="RD,FS" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="dmfc1" operands="RD,FS" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="mtc1" operands="FD,RS" energy="0.291841087382169" clock="0.219483792989895"/>
+		<instruction name="dmtc1" operands="FD,RS" energy="0.291841087382169" clock="0.219483792989895"/>
+		<instruction name="and" operands="RD,RS,RT" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="andi" operands="RD,RS,IM" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="or" operands="RD,RS,RT" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="ori" operands="RD,RS,IM" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="xor" operands="RD,RS,RT" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="xori" operands="RD,RS,IM" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="nor" operands="RD,RS,RT" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="sll" operands="RD,RS,IM" energy="0.291841087382169" clock="0.0361786471961366"/>
+		<instruction name="sllv" operands="RD,RS,RT" energy="0.291841087382169" clock="0.0361786471961366"/>
+		<instruction name="srl" operands="RD,RS,IM" energy="0.291841087382169" clock="0.0361786471961366"/>
+		<instruction name="srlv" operands="RD,RS,RT" energy="0.291841087382169" clock="0.0361786471961366"/>
+		<instruction name="sra" operands="RD,RS,IM" energy="0.291841087382169" clock="0.0361786471961366"/>
+		<instruction name="srav" operands="RD,RS,RT" energy="0.291841087382169" clock="0.0361786471961366"/>
+		<instruction name="slt" operands="RD,RS,RT" energy="0.291841087382169" clock="0.0361786471961366"/>
+		<instruction name="slti" operands="RD,RS,IM" energy="0.291841087382169" clock="0.0361786471961366"/>
+		<instruction name="sltu" operands="RD,RS,RT" energy="0.291841087382169" clock="0.0361786471961366"/>
+		<instruction name="sltiu" operands="RD,RS,IM" energy="0.291841087382169" clock="0.0361786471961366"/>
+		<instruction name="add.s" operands="FD,FS,FT" energy="2.06218289017979" clock="1.09018323551025"/>
+		<instruction name="add.d" operands="FD,FS,FT" energy="2.06218289017979" clock="1.09018323551025"/>
+		<instruction name="sub.s" operands="FD,FS,FT" energy="2.06218289017979" clock="1.09018323551025"/>
+		<instruction name="sub.d" operands="FD,FS,FT" energy="2.06218289017979" clock="1.09018323551025"/>
+		<instruction name="mul.s" operands="FD,FS,FT" energy="16.4974631214383" clock="4.360732942041"/>
+		<instruction name="mul.d" operands="FD,FS,FT" energy="16.4974631214383" clock="4.360732942041"/>
+		<instruction name="div.d" operands="FD,FS,FT" energy="16.4974631214383" clock="4.360732942041"/>
+		<instruction name="mov.d" operands="FD,FS" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="neg.d" operands="FD,FS" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="cvt.s.d" operands="FD,FS" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="cvt.s.w" operands="FD,FS" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="cvt.d.s" operands="FD,FS" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="cvt.d.w" operands="FD,FS" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="cvt.w.d" operands="FD,FS" energy="0.0602977453268944" clock="0.0361786471961366"/>
+		<instruction name="c.eq.d" operands="WR_FCC,FS,FT" energy="2.06218289017979" clock="1.09018323551025"/>
+		<instruction name="c.lt.d" operands="WR_FCC,FS,FT" energy="2.06218289017979" clock="1.09018323551025"/>
+		<instruction name="c.le.d" operands="WR_FCC,FS,FT" energy="2.06218289017979" clock="1.09018323551025"/>
+		<instruction name="sqrt.d" operands="FD,FS" energy="16.4974631214383" clock="4.360732942041" delay="10"/>
+		<instruction name="j" operands="IM" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="jal" operands="IM" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="jr" operands="RS" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="jalr" operands="RD,RS" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="beq" operands="RS,RT,IM" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="bne" operands="RS,RT,IM" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="blez" operands="RS,IM" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="bgtz" operands="RS,IM" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="bltz" operands="RS,IM" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="bgez" operands="RS,IM" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="bc1f" operands="RD_FCC,IM" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="bc1t" operands="RD_FCC,IM" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="lb" operands="RD,IM(RT)" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="lbu" operands="RD,IM(RT)" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="lh" operands="RD,IM(RT)" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="lhu" operands="RD,IM(RT)" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="lw" operands="RD,IM(RT)" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="l.s" operands="FD,IM(RT)" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="l.d" operands="FD,IM(RT)" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="sb" operands="RS,IM(RT)" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="sh" operands="RS,IM(RT)" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="sw" operands="RS,IM(RT)" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="s.s" operands="FS,IM(RT)" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="s.d" operands="FS,IM(RT)" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="syscall" operands="NOP" energy="0.672922837848141" clock="0.219483792989895"/>
+		<instruction name="nop" operands="NOP" energy="0.0602977453268944" clock="0.0361786471961366"/>
+	</instructions>
+	<categories>
+		<!-- These are the basic groups which the other groups are made up of -->
+		<category name="OPCODES_INTEGER_ARITHMETIC_BASE">
+			<instruction name="add" />
+			<instruction name="addi" />
+			<instruction name="addu" />
+			<instruction name="addiu" />
+			<instruction name="sub" />
+			<instruction name="subu" />
+			<instruction name="lui" />
+			<instruction name="mfc1" />
+			<instruction name="dmfc1" />
+			<instruction name="mtc1" />
+			<instruction name="dmtc1" />
+			<instruction name="mfhi" />
+			<instruction name="mflo" />
+		</category>
+		<category name="OPCODES_INTEGER_ARITHMETIC_MULT">
+			<instruction name="mult" />
+		</category>
+		<category name="OPCODES_INTEGER_ARITHMETIC_DIV">
+			<instruction name="div" />
+			<instruction name="divu" />
+		</category>
+		<category name="OPCODES_INTEGER_LOGICAL">
+			<instruction name="and" />
+			<instruction name="andi" />
+			<instruction name="or" />
+			<instruction name="ori" />
+			<instruction name="xor" />
+			<instruction name="xori" />
+			<instruction name="nor" />
+			<instruction name="sll" />
+			<instruction name="sllv" />
+			<instruction name="srl" />
+			<instruction name="srlv" />
+			<instruction name="sra" />
+			<instruction name="srav" />
+			<instruction name="slt" />
+			<instruction name="slti" />
+			<instruction name="sltu" />
+			<instruction name="sltiu" />
+		</category>
+		<category name="OPCODES_FLOATING_BASE">
+			<instruction name="add.s" />
+			<instruction name="add.d" />
+			<instruction name="sub.s" />
+			<instruction name="sub.d" />
+			<instruction name="mov.d" />
+			<instruction name="neg.d" />
+			<instruction name="cvt.s.d" />
+			<instruction name="cvt.s.w" />
+			<instruction name="cvt.d.s" />
+			<instruction name="cvt.d.w" />
+			<instruction name="cvt.w.d" />
+			<instruction name="c.eq.d" />
+			<instruction name="c.lt.d" />
+			<instruction name="c.le.d" />
+		</category>
+		<category name="OPCODES_FLOATING_MULT">
+			<instruction name="mul.s" />
+			<instruction name="mul.d" />
+		</category>
+		<category name="OPCODES_FLOATING_DIV">
+			<instruction name="div.d" />
+		</category>
+		<category name="OPCODES_FLOATING_SQRT">
+			<instruction name="sqrt.d" />
+		</category>
+		<category name="OPCODES_BRANCHING_JUMP">
+			<instruction name="j" />
+			<instruction name="jal" />
+			<instruction name="jr" />
+			<instruction name="jalr" />
+		</category>
+		<category name="OPCODES_BRANCHING_CONDITIONAL">
+			<instruction name="beq" />
+			<instruction name="bne" />
+			<instruction name="blez" />
+			<instruction name="bgtz" />
+			<instruction name="bltz" />
+			<instruction name="bgez" />
+			<instruction name="bc1f" />
+			<instruction name="bc1t" />
+		</category>
+		<category name="OPCODES_MEMORY_LOAD">
+			<instruction name="lb" />
+			<instruction name="lbu" />
+			<instruction name="lh" />
+			<instruction name="lhu" />
+			<instruction name="lw" />
+			<instruction name="l.s" />
+			<instruction name="l.d" />
+		</category>
+		<category name="OPCODES_MEMORY_STORE">
+			<instruction name="sb" />
+			<instruction name="sh" />
+			<instruction name="sw" />
+			<instruction name="s.s" />
+			<instruction name="s.d" />
+		</category>
+		<!-- These are the categories used by the simulator -->
+		<category name="opcodes_integer_arithmetic_base">
+			<category name="OPCODES_INTEGER_ARITHMETIC_BASE" />
+		</category>
+		<category name="opcodes_integer_arithmetic_mult">
+			<category name="OPCODES_INTEGER_ARITHMETIC_MULT" />
+		</category>
+		<category name="opcodes_integer_arithmetic_div">
+			<category name="OPCODES_INTEGER_ARITHMETIC_DIV" />
+		</category>
+		<category name="opcodes_integer_arithmetic_multdiv">
+			<category name="OPCODES_INTEGER_ARITHMETIC_MULT" />
+			<category name="OPCODES_INTEGER_ARITHMETIC_DIV" />
+		</category>
+		<category name="opcodes_integer_arithmetic">
+			<category name="OPCODES_INTEGER_ARITHMETIC_BASE" />
+			<category name="OPCODES_INTEGER_ARITHMETIC_MULT" />
+			<category name="OPCODES_INTEGER_ARITHMETIC_DIV" />
+		</category>
+		<category name="opcodes_integer_logical">
+			<category name="OPCODES_INTEGER_LOGICAL" />
+		</category>
+		<category name="opcodes_integer_arithmetic_logical">
+			<category name="OPCODES_INTEGER_ARITHMETIC_BASE" />
+			<category name="OPCODES_INTEGER_LOGICAL" />
+		</category>
+		<category name="opcodes_integer">
+			<category name="OPCODES_INTEGER_ARITHMETIC_BASE" />
+			<category name="OPCODES_INTEGER_ARITHMETIC_MULT" />
+			<category name="OPCODES_INTEGER_ARITHMETIC_DIV" />
+			<category name="OPCODES_INTEGER_LOGICAL" />
+		</category>
+		<category name="opcodes_floating_base">
+			<category name="OPCODES_FLOATING_BASE" />
+		</category>
+		<category name="opcodes_floating_mult">
+			<category name="OPCODES_FLOATING_MULT" />
+		</category>
+		<category name="opcodes_floating_div">
+			<category name="OPCODES_FLOATING_DIV" />
+		</category>
+		<category name="opcodes_floating_sqrt">
+			<category name="OPCODES_FLOATING_SQRT" />
+		</category>
+		<category name="opcodes_floating_multdivsqrt">
+			<category name="OPCODES_FLOATING_MULT" />
+			<category name="OPCODES_FLOATING_DIV" />
+			<category name="OPCODES_FLOATING_SQRT" />
+		</category>
+		<category name="opcodes_floating">
+			<category name="OPCODES_FLOATING_BASE" />
+			<category name="OPCODES_FLOATING_MULT" />
+			<category name="OPCODES_FLOATING_DIV" />
+			<category name="OPCODES_FLOATING_SQRT" />
+		</category>
+		<category name="opcodes_arithmetic_logical">
+			<category name="OPCODES_FLOATING_BASE" />
+			<category name="OPCODES_FLOATING_MULT" />
+			<category name="OPCODES_FLOATING_DIV" />
+			<category name="OPCODES_FLOATING_SQRT" />
+			<category name="OPCODES_INTEGER_ARITHMETIC_BASE" />
+			<category name="OPCODES_INTEGER_ARITHMETIC_MULT" />
+			<category name="OPCODES_INTEGER_ARITHMETIC_DIV" />
+			<category name="OPCODES_INTEGER_LOGICAL" />
+		</category>
+		<category name="opcodes_arithmetic_logical_nomultdiv">
+			<category name="OPCODES_FLOATING_BASE" />
+			<category name="OPCODES_INTEGER_ARITHMETIC_BASE" />
+			<category name="OPCODES_INTEGER_LOGICAL" />
+		</category>
+		<category name="opcodes_arithmetic_multdiv">
+			<category name="OPCODES_FLOATING_MULT" />
+			<category name="OPCODES_FLOATING_DIV" />
+			<category name="OPCODES_FLOATING_SQRT" />
+			<category name="OPCODES_INTEGER_ARITHMETIC_MULT" />
+			<category name="OPCODES_INTEGER_ARITHMETIC_DIV" />
+		</category>
+		<category name="opcodes_branching_jump">
+			<category name="OPCODES_BRANCHING_JUMP" />
+		</category>
+		<category name="opcodes_branching_conditional">
+			<category name="OPCODES_BRANCHING_CONDITIONAL" />
+		</category>
+		<category name="opcodes_branching">
+			<category name="OPCODES_BRANCHING_JUMP" />
+			<category name="OPCODES_BRANCHING_CONDITIONAL" />
+		</category>
+		<category name="opcodes_memory_load">
+			<category name="OPCODES_MEMORY_LOAD" />
+		</category>
+		<category name="opcodes_memory_store">
+			<category name="OPCODES_MEMORY_STORE" />
+		</category>
+		<category name="opcodes_memory">
+			<category name="OPCODES_MEMORY_LOAD" />
+			<category name="OPCODES_MEMORY_STORE" />
+		</category>
+		<category name="opcodes_branching_memory">
+			<category name="OPCODES_BRANCHING_JUMP" />
+			<category name="OPCODES_BRANCHING_CONDITIONAL" />
+			<category name="OPCODES_MEMORY_LOAD" />
+			<category name="OPCODES_MEMORY_STORE" />
+		</category>
+		<!-- This has every opcode -->
+		<category name="opcodes">
+			<category name="OPCODES_FLOATING_BASE" />
+			<category name="OPCODES_FLOATING_MULT" />
+			<category name="OPCODES_FLOATING_DIV" />
+			<category name="OPCODES_FLOATING_SQRT" />
+			<category name="OPCODES_INTEGER_ARITHMETIC_BASE" />
+			<category name="OPCODES_INTEGER_ARITHMETIC_MULT" />
+			<category name="OPCODES_INTEGER_ARITHMETIC_DIV" />
+			<category name="OPCODES_INTEGER_LOGICAL" />
+			<category name="OPCODES_BRANCHING_JUMP" />
+			<category name="OPCODES_BRANCHING_CONDITIONAL" />
+			<category name="OPCODES_MEMORY_LOAD" />
+			<category name="OPCODES_MEMORY_STORE" />
+		</category>
+	</categories>
+</psatsim_isa>

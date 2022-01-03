@@ -1,0 +1,12 @@
+p { text-align: justify; text-indent: 15pt
+ }
+table {
+/* 	width: 100%; */
+	border: solid 1px Black;
+	border-collapse: collapse
+}
+table th {
+	border: solid 1px Black
+}
+table td { padding-right: 4px; padding-left: 4px; border: solid 1px black; }
+pre { font-size: small; }

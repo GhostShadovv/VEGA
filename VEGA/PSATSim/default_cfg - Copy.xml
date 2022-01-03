@@ -1,0 +1,208 @@
+<psatsim>
+	<!-- A config node must contain only the following types of subnodes:
+			general, reservation, memory, branching
+		The outer product of the multiple elements will be taken to form
+		the configuration space, on top of range specification within a subnode's
+		attributes -->
+	
+	<!-- The name is used in the output to identify which instance the results correspond to.
+		The number is provided to simplify the ordering of the resultant data.
+		Note: the number is ignored by the configuration space parser, but it put into the
+		output stream.
+	<config name="..." number="\d+"> -->
+	<config name="Default">
+		<!--
+		<general
+			superscalar="\d+"
+			rename="\d+"
+			reorder"\d+"
+			
+			#-These are used for non-custom architectures
+			rsb_architecture="centralized|hybrid|distributed"
+			rs_per_rsb="\d+"
+			
+			#-Optional: separate the decode and dispatch staged
+			#	True is the default, false indicates that the
+			#	decode and dispatch stages will be combined
+			separate_dispatch="false|true"
+			
+			#-Optional: seed for the random number generator
+			#	Defaults to the load time of the simulator
+			seed="\d+"
+			
+			trace="..."
+			output="..."
+			
+			vdd="<floating>" (~1.8-3.3 type range)
+			freq="<floating>"
+			/> -->
+		<!--
+		Vdd and Frequency values used by Wattch (all 350 nm):
+			Processor		Vdd		MHz
+			Alpha 21264		2.2		600
+			Pentium Pro		3.3		200
+			MIPS R10000		3.3		200
+		-->
+		<general
+			superscalar="2" rename="16" reorder="20"
+			rsb_architecture="distributed" rs_per_rsb="2"
+			speculative="true" speculation_accuracy="0.980"
+			separate_dispatch="true" seed="0"
+			trace="compress.tra" output="output.xml"
+			vdd="2.2" frequency="600" />
+		
+		<!-- This is the structure for the standard system architecture 
+		<execution
+			# This specifies the type of execution architecture
+			architecture="standard"
+			# This specifies the number of integer EUs
+			integer="2"
+			# This specifies the number of floating EUs
+			floating="2"
+			# This specifies the number of branching EUs
+			branch="2"
+			# This specifies the number of memory EUs
+			memory="2"
+			/>	-->
+		<execution architecture="standard" integer="2" floating="2" branch="1" memory="1" />
+		
+		<!-- This is the structure for the simple system architecture
+		<execution
+			# This specifies the type of execution architecture
+			architecture="simple"
+			# This specifies the number of ALU EUs
+			alu="2"
+			# This specifies the number of branching EUs
+			branch="2"
+			# This specifies the number of memory EUs
+			memory="2"
+			/> -->
+		<!--<execution architecture="simple" alu="2" branch="2" memory="2" /> -->
+		
+		<!-- This is the structure for the complex system architecture
+		<execution
+			# This specifies the type of execution architecture
+			architecture="complex"
+			
+			# This specifies the number of integer addition/logic EUs
+			iadd="2"
+			# This specifies the number of integer multiplication EUs
+			imult="2"
+			# This specifies the number of integer division EUs
+			idiv="1"
+			
+			# This specifies the number of floating-point addition/logic EUs
+			fpadd="2"
+			# This specifies the number of floating-point multiplication EUs
+			fpmult="2"
+			# This specifies the number of floating-point division EUs
+			fpdiv="1"
+			# This specifies the number of floating-point sqrt EUs
+			fpsqrt="1"
+			
+			# This specifies the number of branching EUs
+			branch="2"
+			
+			# This specifies the number of load memory EUs
+			load="2"
+			# This specifies the number of store memory EUs
+			store="2"
+			/> -->
+		<!--<execution architecture="complex"
+			iadd="2" imult="2" idiv="1"
+			fpadd="2" fpmult="2" fpdiv="1" fpsqrt="1"
+			branch="1" load="1" store="1"	/> -->
+				
+		<!-- This is the structure for specifying a custom architecture. This lets you completely control the
+			organization of the RSBs and EUs. You must, however, understand the scope of each filter type that
+			you are using and ensure that deadlock is not possible, otherwise no meaningful results will be
+			obtainable.
+		<execution architecture="custom">
+			<rsb
+				filter="opcodes_integer_arithmetic_base|opcodes_integer_arithmetic_mult|opcodes_integer_arithmetic_div|opcodes_integer_arithmetic|opcodes_integer_logical|opcodes_integer_arithmetic_logical|opcodes_integer|opcodes_floating_base|opcodes_floating_mult|opcodes_floating_div|opcodes_floating_sqrt|opcodes_floating|opcodes_arithmetic_logical|opcodes_branching_jump|opcodes_branching_conditional|opcodes_branching|opcodes_memory_load|opcodes_memory_store|opcodes_memory|opcodes"
+				size="\d+">
+				<alu
+					name=".+"
+					filter="opcodes_integer_arithmetic_base|opcodes_integer_arithmetic_mult|opcodes_integer_arithmetic_div|opcodes_integer_arithmetic|opcodes_integer_logical|opcodes_integer_arithmetic_logical|opcodes_integer|opcodes_floating_base|opcodes_floating_mult|opcodes_floating_div|opcodes_floating_sqrt|opcodes_floating|opcodes_arithmetic_logical"
+					pipeline="\d+"
+					delay="\d+"
+					multiplicity="2" />
+				<branch
+					name=".+"
+					filter="opcodes_branching_jump|opcodes_branching_conditional|opcodes_branching"
+					pipeline="\d+"
+					delay="\d+" />
+				<memory
+					name=".+"
+					filter="opcodes_memory_load|opcodes_memory_store|opcodes_memory"
+					pipeline="\d+"
+					delay="\d+" />
+				...
+			</rsb>
+			...
+		</execution> -->
+		<!--
+		<execution architecture="custom">
+			<rsb
+				filter="opcodes_arithmetic_logical"
+				size="3">
+				<alu
+					name="ALU"
+					filter="opcodes_arithmetic_logical"
+					pipeline="1"
+					delay="1"
+					multiplicity="2" />
+			</rsb>
+			<rsb
+				filter="opcodes_branching_memory"
+				size="2">
+				<branch
+					name="Branch"
+					filter="opcodes_branching"
+					pipeline="1"
+					delay="1" />
+				<memory
+					name="Memory"
+					filter="opcodes_memory"
+					pipeline="2"
+					delay="1" />
+			</rsb>
+		</execution>
+		-->
+		
+		<!--
+		<memory architecture="system">
+			# This specifies the parameters for the system memory
+			<system latency="1" />
+		</memory> -->
+		
+		<!--
+		<memory architecture="l1">
+			# This specifies the parameters for the L1 code cache
+			<l1_code hitrate="0.990" latency="1" />
+			# This specifies the parameters for the L1 data cache
+			<l1_data hitrate="0.970" latency="1" />
+			# This specifies the parameters for the system memory
+			<system latency="10" />
+		</memory> -->
+		
+		<!--
+		<memory architecture="l2">
+			# This specifies the parameters for the L1 code cache
+			<l1_code hitrate="0.990" latency="1" />
+			# This specifies the parameters for the L1 data cache
+			<l1_data hitrate="0.970" latency="1" />
+			# This specifies the parameters for the L2 cache
+			<l2 hitrate="0.990" latency="3" />
+			# This specifies the parameters for the system memory
+			<system latency="20" />
+		</memory> -->
+		
+		<memory architecture="l2">
+			<l1_code hitrate="0.990" latency="1" />
+			<l1_data hitrate="0.970" latency="1" />
+			<l2 hitrate="0.990" latency="3" />
+			<system latency="20" />
+		</memory>
+	</config>
+</psatsim>
