@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><psatsim>
+	<config name="Case1">
+		<general frequency="600" output="output.xml" rename="1" reorder="1" rs_per_rsb="2" rsb_architecture="distributed" seed="0" separate_dispatch="true" speculation_accuracy="0.980" speculative="true" superscalar="16" trace="compress.tra" vdd="2.2"/>
+		<execution architecture="standard" branch="1" floating="2" integer="2" memory="1"/>
+		<memory architecture="l2">
+			<l1_code hitrate="0.990" latency="1"/>
+			<l1_data hitrate="0.970" latency="1"/>
+			<l2 hitrate="0.990" latency="3"/>
+			<system latency="20"/>
+		</memory>
+	</config>
+</psatsim>

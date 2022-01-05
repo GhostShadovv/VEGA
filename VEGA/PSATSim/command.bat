@@ -1,2 +1,1 @@
-psatsim_con default_cfg.xml output.xml -cgmua
-exit
+psatsim_con "default_cfg.xml" output.xml -t 8 -cg

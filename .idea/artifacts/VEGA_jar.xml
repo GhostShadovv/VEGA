@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="VEGA:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/VEGA_jar</output-path>
+    <root id="archive" name="VEGA.jar">
+      <element id="module-output" name="VEGA" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/MOEAFramework-2.13.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
