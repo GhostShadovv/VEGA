@@ -43,7 +43,7 @@
 			Pentium Pro		3.3		200
 			MIPS R10000		3.3		200
 		-->
-		<general frequency="600" output="output.xml" rename="118" reorder="25" rs_per_rsb="2" rsb_architecture="distributed" seed="0" separate_dispatch="false" speculation_accuracy="0.980" speculative="true" superscalar="2" trace="compress.tra" vdd="2.2"/>
+		<general frequency="600" output="output.xml" rename="266" reorder="380" rs_per_rsb="4" rsb_architecture="hybrid" seed="0" separate_dispatch="false" speculation_accuracy="0.980" speculative="true" superscalar="5" trace="compress.tra" vdd="2.2"/>
 		
 		<!-- This is the structure for the standard system architecture 
 		<execution
@@ -58,7 +58,7 @@
 			# This specifies the number of memory EUs
 			memory="2"
 			/>	-->
-		 <execution architecture="standard" branch="2" floating="5" integer="2" memory="4"/>;
+		 <execution architecture="standard" branch="8" floating="3" integer="2" memory="1"/>;
 		
 		<!-- This is the structure for the simple system architecture
 		<execution

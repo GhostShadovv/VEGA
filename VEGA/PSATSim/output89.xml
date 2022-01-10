@@ -1,0 +1,58 @@
+<!-- PSATSim v2.1 by Clint W. Smullen, IV
+Running configuration file default_cfg.xml with 1 variations -->
+<psatsim_results>
+<variation
+	configuration="Default" variation="1"
+	started="09 January 2022, 17:02:15" runtime="0.984">
+	<psatsim>
+		<config name="Default" number="1">
+			<general
+				superscalar="2" rename="118" reorder="25"
+				rsb_architecture="distributed" rs_per_rsb="2"
+				speculative="true" speculation_accuracy="0.980"
+				separate_dispatch="false" seed="1641740535"
+				trace="compress.tra" output="output.xml"
+				vdd="2.2" freq="600" />
+			<execution architecture="standard"
+				integer="2" floating="5" branch="2" memory="4" />
+			<memory architecture="l2">
+				<system latency="20" />
+				<l1_code hitrate="0.990" latency="1" />
+				<l1_data hitrate="0.970" latency="1" />
+				<l2 hitrate="0.990" latency="3" />
+			</memory>
+		</config>
+	</psatsim>
+	<general
+		cycles="66992"
+		instructions="116748"
+		fetches="117998"
+		ipc="1.742716"
+		energy="0.859744"
+		power="7.70012">
+		<regfile
+			total="224745"
+			utilization_avg="3.3548"
+			capacitance="0.167745"
+			activity="15380.7"
+			energy="0.0124874"
+			power="0.111841"
+			power_percent="1.45245" />
+		<resultbus
+			total="116883"
+			utilization_avg="1.74473"
+			capacitance="0.879822"
+			activity="14791.1"
+			energy="0.0629855"
+			power="0.564117"
+			power_percent="7.32608" />
+		<clockbus
+			capacitance="1.38075"
+			activity="66992"
+			energy="0.447697"
+			power="4.00971"
+			power_percent="52.0733" />
+	</general>
+</variation>
+
+</psatsim_results>

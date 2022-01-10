@@ -9,7 +9,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5609257e-ae6a-4c8d-96b2-d7ede4bafa8e" name="Changes" comment="" />
+    <list default="true" id="5609257e-ae6a-4c8d-96b2-d7ede4bafa8e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/VEGA_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/VEGA_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/applu.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/applu.tra" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/compress.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/compress.tra" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/epic.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/epic.tra" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/fpppp.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/fpppp.tra" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/ijpeg.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/ijpeg.tra" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/mpeg2d.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/mpeg2d.tra" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/mpeg2e.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/mpeg2e.tra" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/pegwitd.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/pegwitd.tra" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/perl.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/perl.tra" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/toast.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/toast.tra" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/cli_usage.html" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/cli_usage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/command.bat" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/command.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/default_cfg - Copy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/default_cfg - Copy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/default_cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/default_cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/output.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/src/com/company/DataType.java" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/src/com/company/DataType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/VEGA_jar/VEGA.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VEGA_jar/VEGA.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/DataType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/DataType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/Main.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,11 +63,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/MOEAFramework-2.13.jar" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/VEGA/src" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -48,7 +76,7 @@
       <recent name="D:\GitHub\VEGA\src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
       <module name="VEGA" />
@@ -62,9 +90,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="VEGA.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/VEGA_jar/VEGA.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JAR Application.VEGA.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -78,5 +111,10 @@
       <updated>1641239299681</updated>
     </task>
     <servers />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/VEGA$Main.ic" NAME="Main Coverage Results" MODIFIED="1641631675832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.company.*</FILTER>
+    </SUITE>
   </component>
 </project>

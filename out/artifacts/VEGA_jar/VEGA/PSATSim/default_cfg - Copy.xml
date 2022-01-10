@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><psatsim>
+<psatsim>
 	<!-- A config node must contain only the following types of subnodes:
 			general, reservation, memory, branching
 		The outer product of the multiple elements will be taken to form
@@ -43,7 +43,13 @@
 			Pentium Pro		3.3		200
 			MIPS R10000		3.3		200
 		-->
-		<general frequency="600" output="output.xml" rename="118" reorder="25" rs_per_rsb="2" rsb_architecture="distributed" seed="0" separate_dispatch="false" speculation_accuracy="0.980" speculative="true" superscalar="2" trace="compress.tra" vdd="2.2"/>
+		<general
+			superscalar="2" rename="16" reorder="20"
+			rsb_architecture="distributed" rs_per_rsb="2"
+			speculative="true" speculation_accuracy="0.980"
+			separate_dispatch="true" seed="0"
+			trace="compress.tra" output="output.xml"
+			vdd="2.2" frequency="600" />
 		
 		<!-- This is the structure for the standard system architecture 
 		<execution
@@ -58,7 +64,7 @@
 			# This specifies the number of memory EUs
 			memory="2"
 			/>	-->
-		 <execution architecture="standard" branch="2" floating="5" integer="2" memory="4"/>;
+		<execution architecture="standard" integer="2" floating="2" branch="1" memory="1" />
 		
 		<!-- This is the structure for the simple system architecture
 		<execution
@@ -102,7 +108,10 @@
 			# This specifies the number of store memory EUs
 			store="2"
 			/> -->
-		<!-- <execution architecture="complex" branch="4" fpadd="7" fpdiv="6" fpmult="6" fpsqrt="5" iadd="7" idiv="5" imult="1" load="8" store="8"/> -->
+		<!--<execution architecture="complex"
+			iadd="2" imult="2" idiv="1"
+			fpadd="2" fpmult="2" fpdiv="1" fpsqrt="1"
+			branch="1" load="1" store="1"	/> -->
 				
 		<!-- This is the structure for specifying a custom architecture. This lets you completely control the
 			organization of the RSBs and EUs. You must, however, understand the scope of each filter type that
@@ -190,10 +199,10 @@
 		</memory> -->
 		
 		<memory architecture="l2">
-			<l1_code hitrate="0.990" latency="1"/>
-			<l1_data hitrate="0.970" latency="1"/>
-			<l2 hitrate="0.990" latency="3"/>
-			<system latency="20"/>
+			<l1_code hitrate="0.990" latency="1" />
+			<l1_data hitrate="0.970" latency="1" />
+			<l2 hitrate="0.990" latency="3" />
+			<system latency="20" />
 		</memory>
 	</config>
 </psatsim>

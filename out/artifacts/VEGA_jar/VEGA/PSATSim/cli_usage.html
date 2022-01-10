@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<title>PSATSim Command Line Usage</title>
+	<link rel="stylesheet" type="text/css" media="all" href="psatsim.css" />
+</head>
+
+<body>
+<h1>PSATSim Command Line Usage</h1>
+<h2>By: Clint W. Smullen, IV</h2>
+
+<ul>
+	<li><a href="#purpose">Purpose</a></li>
+	<li><a href="#fundamentals">Fundamentals of Configuration Files</a></li>
+	<li><a href="#details">Details of Configuration Files</a></li>
+	<li><a href="#running">Running PSATSim on the Command-line</a></li>
+	<li><a href="#understanding">Understanding the Output File</a></li>
+</ul>
+
+<h2><a name="purpose">Purpose</a></h2>
+<p>The purpose of this document is to describe how to use the command line implementation of the PSATSim simulator to process a parameter space en masse. This is extremely useful when it is necessary to analyze an architectural design space rapidly, without any need to watch the simulator run.</p>
+
+<h2><a name="fundamentals">Fundamentals of Configuration Files</a></h2>
+<p>It is first necessary to understand how PSATSim configuration files work. Each file represents a <em>configuration space</em> and is saved in XML format. The root node of a configuration file is <tt>&lt;psatsim&gt; … &lt;/psatsim&gt;</tt>. Within this node is a set of one or more <tt>&lt;config name=&quot;…&quot;&gt; … &lt;/config&gt;</tt> nodes. These form the basis for specifying a configuration space. The <em>name</em> attribute of the <em>config</em> nodes allows you to give a name to that subset of the configuration space, it is user specified and is not used for anything other than tagging the configurations in the output file.</p>
+
+<p>Within each <em>config</em> node there must be at least one of each of the following:</p>
+	<ul>
+		<li><em>general</em></li>
+		<li><em>execution</em></li>
+		<li><em>memory</em></li>
+	</ul>
+<p>These nodes specify the parameters for the three major sections. If more than one of each type of node is present, they are multiplexed to form every possible combination. For example:</p>
+<pre>
+   &lt;psatsim&gt;
+      &lt;config name=&quot;Case1&quot;&gt;
+         &lt;general … /&gt;
+         &lt;general … /&gt;
+         &lt;execution … /&gt;
+         &lt;memory … /&gt;
+         &lt;memory … /&gt;
+         &lt;memory … /&gt;
+      &lt;/config&gt;
+      &lt;config name=&quot;Case2&quot;&gt;
+         &lt;general … /&gt;
+         &lt;general … /&gt;
+         &lt;execution … /&gt;
+         &lt;execution … /&gt;
+         &lt;memory … /&gt;
+         &lt;memory … /&gt;
+      &lt;/config&gt;
+   &lt;/psatsim&gt;
+</pre>
+<p>In the example above, there would be a total of 14 inter-variations. The first <em>config</em> block gives six inter-variations (two <em>general</em> blocks times one <em>execution</em> block times three <em>memory</em> blocks). The second <em>config</em> block gives eight inter-variations (two <em>general</em> blocks times two <em>execution</em> block times two <em>memory</em> blocks).</p>
+		<p>The number of combinations is generally greater than the number of inter-variations due to intra-variations of the parameters inside any of the three major sections within a <em>config</em> node. Though not every parameter can be varied in this manner, intra-variation simplifies the task of simulating across a significant proportion of the domain of one or more parameters. Only parameters whose domain is integral can be intra-varied, though there are further restrictions in some cases, as discussed later in this document. Inter-variation of whole blocks provides the most flexibility but requires great care to ensure that each variation of interest is correctly specified. Intra-variation simplifies this task but requires judicuous use since it grows the number of total variations dramatically.</p>
+<p>To specify an intra-variation for a parameter, all that is necessary is to specify a range of values, such as 4-6. Intra-variation effectively multiplexes every combination of intra-variation together to form a set of blocks, which are then multiplexed to form every variation overall. For example:</p>
+<pre>
+   &lt;psatsim&gt;
+      &lt;config name=&quot;Case3&quot;&gt;
+         &lt;general
+            superscalar=&quot;1-16&quot;
+            rename="16"
+            reorder="20"
+            rsb_architecture="distributed"
+            rs_per_rsb=&quot;1-8&quot;
+            speculative="true"
+            speculation_accuracy="0.980"
+            separate_dispatch="true"
+            seed="1"
+            trace="compress.tra"
+            output="output.xml"
+            vdd="2.2"
+            frequency="600"
+            /&gt;
+         &lt;general
+            superscalar=&quot;1-16&quot;
+            rename="16"
+            reorder="24"
+            rsb_architecture="distributed"
+            rs_per_rsb=&quot;1-8&quot;
+            speculative="true"
+            speculation_accuracy="0.980"
+            separate_dispatch="true"
+            seed="1"
+            trace="compress.tra"
+            output="output.xml"
+            vdd="2.2"
+            frequency="600"
+            /&gt;
+         &lt;execution
+            architecture="standard"
+            integer="2"
+            floating="2"
+            branch="1"
+            memory="1"
+            /&gt;
+         &lt;memory architecture=&quot;l2&quot;&gt;
+            &lt;l1_code hitrate=&quot;0.990&quot; latency=&quot;1&quot; /&gt;
+            &lt;l1_data hitrate=&quot;0.970&quot; latency=&quot;1&quot; /&gt;
+            &lt;l2 hitrate=&quot;0.990&quot; latency=&quot;3&quot; /&gt;
+            &lt;system latency=&quot;20&quot; /&gt;
+         &lt;/memory&gt;
+      &lt;/config&gt;
+   &lt;/psatsim&gt;
+</pre>
+<p>In the example above, there would be a total of two inter-variations, due to the two <em>general</em> blocks, and 128 intra-variations for each of the <em>general</em> blocks, giving 256 variations in total. The large number of variations should indicate how easy it is to go overboard with intra-variations. The desire to test all possible combinations of parameters must be tempered with an informed testing process.</p>
+<p>The next section describes what each parameter is for and if and how much it can be intra-varied.</p>
+
+<h2><a name="details">Details of Configuration Files</a></h2>
+<h3>General</h3>
+<table>
+	<tr>
+		<th>Attribute Name</th>
+		<th>Domain of Values</th>
+		<th>Comments</th>
+	</tr>
+	<tr>
+		<td>superscalar</td>
+		<td>Integers 1-16 (intra-variable)</td>
+		<td>Superscalar factor</td>
+	</tr>
+	<tr>
+		<td>rename</td>
+		<td>Integers 1-512 (intra-variable)</td>
+		<td>Register renaming table size</td>
+	</tr>
+	<tr>
+		<td>reorder</td>
+		<td>Integers 1-512 (intra-variable)</td>
+		<td>Reorder buffer size</td>
+	</tr>
+	<tr>
+		<td>rsb_architecture</td>
+		<td><em>centralized</em> or <em>hybrid</em> or <em>distributed</em></td>
+		<td>Reservation station architecture</td>
+	</tr>
+	<tr>
+		<td>separate_dispatch</td>
+		<td><em>true</em> or <em>false</em></td>
+		<td>If false, then the decode and dispatch stages are combined, otherwise they are separated.</td>
+	</tr>
+	<tr>
+		<td>seed</td>
+		<td>Integer 0-4294967295</td>
+		<td>Random number generator seed value. If zero, then the seed is chosen based on the starting time of the simulation.</td>
+	</tr>
+	<tr>
+		<td>trace</td>
+		<td>Filename</td>
+		<td>The filename of the input trace file</td>
+	</tr>
+	<tr>
+		<td>output</td>
+		<td>Filename</td>
+		<td>The filename of the output file</td>
+	</tr>
+	<tr>
+		<td>vdd</td>
+		<td>Floating point greater than zero</td>
+		<td>Processor supply voltage. For the default 350 nm process, should kept in the range of 1.8-3.3.</td>
+	</tr>
+	<tr>
+		<td>freq</td>
+		<td>Floating point greater than zero</td>
+		<td>Processor clock frequency, in MHz</td>
+	</tr>
+</table>
+
+<h3>Execution</h3>
+<p>The attributes for the execution block are dependent on the chosen architecture. The three basic choices are <em>standard</em>, <em>simple</em>, and <em>complex</em>. It is also possible to specify a custom architectural configuration for the functional units and reservation stations, however, that is beyond the scope of this document.</p>
+<h4>Standard</h4>
+<table>
+	<tr>
+		<th>Attribute Name</th>
+		<th>Domain of Values</th>
+		<th>Comments</th>
+	</tr>
+	<tr>
+		<td>integer</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of integer functional units</td>
+	</tr>
+	<tr>
+		<td>floating</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of floating point functional units</td>
+	</tr>
+	<tr>
+		<td>branch</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of branch functional units</td>
+	</tr>
+	<tr>
+		<td>memory</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of memory functional units</td>
+	</tr>
+</table>
+<h4>Simple</h4>
+<table>
+	<tr>
+		<th>Attribute Name</th>
+		<th>Domain of Values</th>
+		<th>Comments</th>
+	</tr>
+	<tr>
+		<td>alu</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of arithmetic functional units</td>
+	</tr>
+	<tr>
+		<td>branch</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of branch functional units</td>
+	</tr>
+	<tr>
+		<td>memory</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of memory functional units</td>
+	</tr>
+</table>
+<h4>Complex</h4>
+<table>
+	<tr>
+		<th>Attribute Name</th>
+		<th>Domain of Values</th>
+		<th>Comments</th>
+	</tr>
+	<tr>
+		<td>iadd</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of integer addition functional units</td>
+	</tr>
+		<tr>
+		<td>imult</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of integer multiplication functional units</td>
+	</tr>
+		<tr>
+		<td>idiv</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of integer division functional units</td>
+	</tr>
+	<tr>
+		<td>fpadd</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of floating point addition functional units</td>
+	</tr>
+	<tr>
+		<td>fpmult</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of floating point multiplication functional units</td>
+	</tr>
+	<tr>
+		<td>fpdiv</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of floating point division functional units</td>
+	</tr>
+	<tr>
+		<td>fpdiv</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of floating point division functional units</td>
+	</tr>
+	<tr>
+		<td>fpsqrt</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of floating point square-root functional units</td>
+	</tr>
+	<tr>
+		<td>branch</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of branch functional units</td>
+	</tr>
+	<tr>
+		<td>load</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of memory load functional units</td>
+	</tr>
+	<tr>
+		<td>store</td>
+		<td>Integers 1-8 (intra-variable)</td>
+		<td>The number of memory store functional units</td>
+	</tr>
+</table>
+<h3>Memory</h3>
+<p>The memory blocks have up to four subnodes, depending on which memory architecture is specified. If the <em>system</em> architecture is chosen, then only the <em>system</em> sub-node is used. If the <em>l2</em> architecture is chosen, then the <em>l1_code</em>, <em>l1_data</em>, <em>l2</em>, and <em>system</em> sub-nodes are used. A similar intension occurs when the <em>l1</em> architecture is chosen.</p>
+<p>Each of the sub-nodes, except for <em>system</em>, has two attributes: <em>hitrate</em> and latency. The hitrate is a floating point value in the range 0-1. The latency is an integer greater than zero. The latency specifies the number of cycles it takes to access that level of the cache, after a miss has occurred in the next higher level.</p>
+<p>Note that specifying a latency greater than one for the L1 caches in either the <em>l1</em> or <em>l2</em> architectures or for the system memory in the <em>system</em> architecture will make high-throughput execution impossible.</p>
+
+<h2><a name="running">Running PSATSim on the Command-line</a></h2>
+<p>Running <code>psatsim_con</code> without any arguments will produce a screen such as the one shown below. The two required arguments are the configuration file and the output file. The options allow you to increase the number of simultaneous simulations, so as to take advantage of multiple available processing units, and control what is printed into the output file.</p>
+<pre>
+   psatsim_con [configuration file] [output file] {options}
+      Options:
+         -t [thread count] : Number of simultaneous threads (default=1)
+         -cgmua : Print Options (default=a)
+            c Print configuration sections
+            C Suppress configuration sections
+            g Print general results sections
+            G Suppress general results sections
+            m Print memory results sections
+            M Suppress memory results sections
+            u Print utilization results sections
+            U Suppress utilization results sections
+            a Print all results sections
+            A Suppress all results sections
+</pre>
+<p>For general optimization, the print option <code>-cg</code> will include all the necessary information, such as what configuration was used and what the general results of the simulation are. The details of output files are explained in the next section. After executing a proper command, the program will then output to the screen something such as the following:</p>
+<pre>
+   $ psatsim_con case12.xml case12_output.xml -cg
+   Found 14 variations
+   Running configuration 'Case1' variation 1...
+   Running configuration 'Case1' variation 2...
+   Running configuration 'Case1' variation 3...
+   Running configuration 'Case1' variation 4...
+   Running configuration 'Case1' variation 5...
+   Running configuration 'Case1' variation 6...
+   Running configuration 'Case2' variation 1...
+   Running configuration 'Case2' variation 2...
+   Running configuration 'Case2' variation 3...
+   Running configuration 'Case2' variation 4...
+   Running configuration 'Case2' variation 5...
+   Running configuration 'Case2' variation 6...
+   Running configuration 'Case2' variation 7...
+   Running configuration 'Case2' variation 8...
+</pre>
+<p>The first line of output states the number of variations which the simulator loaded from the configuration file. If this number is not correct or if it is different than what you expected, Ctrl-C will kill the program so that you can fix the configuration.</p>
+
+<h2><a name="understanding">Understanding the Output File</a></h2>
+<p>The output files are in XML format. The root node is <em>psatsim_results</em>, which has a <em>variation</em> sub-node for each variation in the configuration space. The <em>variation</em> node has four attributes: configuration name, variation number, started time, and run-time. The configuration name is the one specified in the <em>config</em> node in the configuration file that corresponds to the variation. The variation number is the index into the sub-set of the corresponding <em>config</em> node in the configuration file. The start time is the system time of when the simulator was started, and the run-time specifies how much system time the simulator took to execute.</p>
+<p>The sub-nodes of the <em>variation</em> node depend on what configuration options you specified on the command-line. The table below lists what enabling each print option provides:</p>
+<table>
+	<tr>
+		<th>Option</th>
+		<th>Elements</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>c</td>
+		<td><em>psatsim</em></td>
+		<td>Prints the exact configuration used to initialize the simulator</td>
+	</tr>
+	<tr>
+		<td>g</td>
+		<td><em>general</em></td>
+		<td>Prints the general results of the simulation, including the number of cycles, number of instructions, number of fetches, IPC, global energy, global power, register file, result bus, and global clockbus power statistics.</td>
+	</tr>
+	<tr>
+		<td>m</td>
+		<td><em>memory</em></td>
+		<td>Prints the memory access and power statistics</td>
+	</tr>
+	<tr>
+		<td>u</td>
+		<td><em>fetch</em>, <em>decode</em>, <em>dispatch</em>, <em>rename</em>, <em>rsb</em>, <em>exec</em>, <em>reorder</em>, <em>commit</em>, and <em>core</em></td>
+		<td>Prints the precise utilization statistics for the architecture, including each stage of the pipeline and the reorder and rename buffers</td>
+	</tr>
+</table>
+<p>The structure of each of the output nodes is self-explanatory. Except for specialized, extremely in-depth experimentation, the most useful two sections are the <em>config</em> and <em>general</em> sections. The <em>config</em> section describes, in the same format as used in the configuration file, the configuration used to instantiate the simulator. This is useful as a reference so that you know what parameters went into that variation. The <em>general</em> section describes the overall simulation results, such as the number of cycles, the number of instructions, the IPC, and the overall average power consumption.</p>
+</body>
+</html>

@@ -1,99 +1,67 @@
 package com.company;
 
+import java.util.HashMap;
+
 public class DataType {
     double ipc;
     double power;
-    public int superscalar = 0;
-    public int rename = 0;
-    public int reorder = 0;
+    public int superscalar ;
+    public int rename ;
+    public int reorder ;
     public String rsbARhitecture;
     public boolean separateDispatch;
+    public int rs_per_rsb;
     public int integer = 0;
-    public int floaring = 0;
+    public int floating = 0;
     public int branch = 0;
     public int memory = 0;
-    public int alu = 0;
-    public int iadd = 0;
-    public int imult = 0;
-    public int idiv = 0;
-    public int fpadd = 0;
-    public int fpmult = 0;
-    public int fpdiv = 0;
-    public int fqsqrt = 0;
-    public int load = 0;
-    public int store = 0;
 
-    public DataType(double ipc, double pow, int superscalar, int rename, int reorder, String rsbARhitecture, boolean separateDispatch,
-                    int integer, int floaring, int branch, int memory, int alu, int iadd, int imult, int idiv,
-                    int fpadd, int fpmult, int fpdiv , int fqsqrt, int load, int store) {
-        this.ipc= ipc;
-        this.power = pow;
-        this.superscalar = superscalar;
-        this.rename = rename;
-        this.reorder = reorder;
-        this.rsbARhitecture = rsbARhitecture;
-        this.separateDispatch = separateDispatch;
-        this.integer = integer;
-        this.floaring = floaring;
-        this.branch = branch;
-        this.memory = memory;
-        this.alu = alu;
-        this.iadd = iadd;
-        this.imult = imult;
-        this.idiv = idiv;
-        this.fpadd = fpadd;
-        this.fpmult = fpmult;
-        this.fpdiv = fpdiv;
-        this.fqsqrt = fqsqrt;
-        this.load = load;
-        this.store = store;
+    public HashMap<String, Integer> hmap = new HashMap<String, Integer>();
+
+    public DataType()
+    {
+        hmap.put("superscalar", 0);
+        hmap.put("rename", 1);
+        hmap.put("reorder", 2);
+        hmap.put("rsb_architecture", 3);
+        hmap.put("rs_per_rsb", 4);
+        hmap.put("separate_dispatch", 5);
+        hmap.put("integer", 6);
+        hmap.put("floating", 7);
+        hmap.put("branch", 8);
+        hmap.put("memory", 9);
+    }
+    public int getData(String input)
+    {
+        return hmap.get(input);
     }
 
-    public DataType(double ipc, double pow, int scalar, int rename, int reorder, String rsbArhit, boolean separateDispatch, int integer, int floating, int branch, int memory) {
-        this.ipc= ipc;
-        this.power = pow;
-        this.superscalar = scalar;
-        this.rename = rename;
-        this.reorder = reorder;
-        this.rsbARhitecture = rsbArhit;
-        this.separateDispatch = separateDispatch;
-        this.integer = integer;
-        this.floaring = floating;
-        this.branch = branch;
-        this.memory = memory;
+
+    public String getdataString(String value)
+    {
+        switch(value) {
+            case "0":
+                return "distributed";
+            case "1":
+                return "centralized";
+            case "2":
+                return "hybrid";
+            default:
+                return "distributed";
+        }
     }
 
-    public DataType(double ipc, double pow, int scalar, int rename, int reorder, String rsbArhit, boolean separateDispatch, int alu, int branch, int memory) {
-        this.ipc= ipc;
-        this.power = pow;
-        this.superscalar = scalar;
-        this.rename = rename;
-        this.reorder = reorder;
-        this.rsbARhitecture = rsbArhit;
-        this.separateDispatch = separateDispatch;
-        this.alu = alu;
-        this.branch = branch;
-        this.memory = memory;
+    public String getdataBool(String value)
+    {
+        switch(value) {
+            case "0":
+                return "true";
+            case "1":
+                return "false";
+            default:
+                return "true";
+        }
+
     }
 
-    public DataType(double ipc, double pow, int scalar, int rename, int reorder, String s, boolean separateDispatch, int iadd, int imult, int idiv, int fpadd, int fpmult,
-                    int fpdiv, int fpsqrt, int branch, int load, int store) {
-        this.ipc= ipc;
-        this.power = pow;
-        this.superscalar = scalar;
-        this.rename = rename;
-        this.reorder = reorder;
-        this.rsbARhitecture = s;
-        this.separateDispatch = separateDispatch;
-        this.branch = branch;
-        this.iadd = iadd;
-        this.imult = imult;
-        this.idiv = idiv;
-        this.fpadd = fpadd;
-        this.fpmult = fpmult;
-        this.fpdiv = fpdiv;
-        this.fqsqrt = fpsqrt;
-        this.load = load;
-        this.store = store;
-    }
 }
