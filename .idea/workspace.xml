@@ -10,31 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5609257e-ae6a-4c8d-96b2-d7ede4bafa8e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/VEGA_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/VEGA_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/applu.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/applu.tra" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/compress.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/compress.tra" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/epic.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/epic.tra" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/fpppp.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/fpppp.tra" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/ijpeg.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/ijpeg.tra" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/mpeg2d.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/mpeg2d.tra" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/mpeg2e.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/mpeg2e.tra" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/pegwitd.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/pegwitd.tra" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/perl.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/perl.tra" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/Traces/toast.tra" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/Traces/toast.tra" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/cli_usage.html" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/cli_usage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/command.bat" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/command.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/default_cfg - Copy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/default_cfg - Copy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/default_cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/PSATSim/default_cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/PSATSim/output.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VEGA/src/com/company/DataType.java" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/src/com/company/DataType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VEGA/src/com/company/FileParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/src/com/company/FileParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VEGA/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/VEGA/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/VEGA_jar/VEGA.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VEGA_jar/VEGA.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/DataType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/DataType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/VEGA_jar/VEGA/Chart.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VEGA_jar/VEGA/Chart.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/VEGA_jar/VEGA/PSATSim/default_cfg_tmp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VEGA_jar/VEGA/PSATSim/default_cfg_tmp.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/VEGA_jar/VEGA/graph.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VEGA_jar/VEGA/graph.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/FileParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/FileParser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

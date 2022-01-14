@@ -58,7 +58,7 @@ public class FileParser {
             String outputName = "output"+nrFisier+".xml";
 
             long start = System.currentTimeMillis();
-            Process t = Runtime.getRuntime().exec("cmd /c psatsim_con default_cfg.xml "+outputName+" -t 8 -cg", null, new File("VEGA/PSATSim"));
+            Process t = Runtime.getRuntime().exec("cmd /c psatsim_con default_cfg_tmp.xml "+outputName+" -t 8 -cg", null, new File("VEGA/PSATSim"));
             t.waitFor();
             long finish = System.currentTimeMillis();
 

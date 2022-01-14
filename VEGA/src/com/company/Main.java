@@ -49,7 +49,7 @@ public class Main {
                 .withAlgorithm("VEGA")
                 .withProblemClass(Simulator.class)
                 .withMaxEvaluations(30)
-                .withProperty("populationSize",1000)
+                .withProperty("populationSize",10000)
                 .withProperty("HUX.rate", 20) //Crossover : SBX, PCX, SPX, UNDX, HUX, PMX, SSX
                 .withProperty("UM.rate", 1.0/10000) //Mutation: PM, UM, HUX, PMX
                 .distributeOn(8)
